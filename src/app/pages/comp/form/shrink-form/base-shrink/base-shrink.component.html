@@ -1,0 +1,63 @@
+<ng-container [formGroup]="validateForm">
+  <nz-card [nzBordered]="true" class="m-b-20" [nzTitle]="'基础收缩示例'" [nzExtra]="extraTemplate">
+    <div [class.none]="pickUp">
+      <app-water-mark></app-water-mark>
+      <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+        <nz-form-item nz-col [nzSpan]="8">
+          <div nz-row>
+            <nz-form-label nz-col nzSpan="6" nzFor="form_item_field1">字段1</nz-form-label>
+            <nz-form-control nz-col nzSpan="14">
+              <nz-input-group [nzSuffix]="inputClearTpl">
+                <input type="text" nz-input formControlName="form_item_field1" id="form_item_field1" placeholder="请输入" />
+              </nz-input-group>
+              <ng-template #inputClearTpl>
+                <span nz-icon class="ant-input-clear-icon" nzTheme="fill" nzType="close-circle" *ngIf="inputValue" (click)="inputValue = null"></span>
+              </ng-template>
+            </nz-form-control>
+          </div>
+        </nz-form-item>
+        <nz-form-item nz-col [nzSpan]="8">
+          <div nz-row>
+            <nz-form-label nzSpan="6" nzFor="form_item_field2">字段2</nz-form-label>
+            <nz-form-control nzSpan="14">
+              <input nz-input formControlName="form_item_field2" id="form_item_field2" placeholder="请输入" />
+            </nz-form-control>
+          </div>
+        </nz-form-item>
+        <nz-form-item nz-col [nzSpan]="8">
+          <div nz-row>
+            <nz-form-label nzSpan="6" nzFor="form_item_field3">字段3</nz-form-label>
+            <nz-form-control nzSpan="14">
+              <nz-date-picker formControlName="form_item_field3"></nz-date-picker>
+            </nz-form-control>
+          </div>
+        </nz-form-item>
+      </div>
+      <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }" [class.none]="hiddenDom">
+        <nz-form-item nz-col [nzSpan]="8">
+          <div nz-row>
+            <nz-form-label nzSpan="6" nzFor="form_item_field4">字段4</nz-form-label>
+            <nz-form-control nzSpan="14">
+              <input nz-input formControlName="form_item_field4" id="form_item_field4" placeholder="请输入" />
+            </nz-form-control>
+          </div>
+        </nz-form-item>
+        <nz-form-item nz-col [nzSpan]="8">
+          <div nz-row>
+            <nz-form-label nzSpan="6" nzFor="form_item_field5">字段5</nz-form-label>
+            <nz-form-control nzSpan="14">
+              <nz-checkbox-group formControlName="form_item_field5" [(ngModel)]="checkOptionsOne"></nz-checkbox-group>
+            </nz-form-control>
+          </div>
+        </nz-form-item>
+      </div>
+      <app-reset-query-button (clickButton)="resetOrquery($event)"></app-reset-query-button>
+    </div>
+  </nz-card>
+</ng-container>
+
+<ng-template #extraTemplate>
+  <button nz-button nzType="text" (click)="this.pickUp = !this.pickUp">
+    <span [class.anticon-up]="pickUp" nz-icon nzType="down" nzTheme="outline"></span>
+  </button>
+</ng-template>

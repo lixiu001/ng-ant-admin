@@ -9,4 +9,4 @@ const routes: Routes = [{ path: '', component: ShrinkFormComponent, data: { titl
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ShrinkFormRoutingModule {}
+export class ShrinkFormRoutingModule { }

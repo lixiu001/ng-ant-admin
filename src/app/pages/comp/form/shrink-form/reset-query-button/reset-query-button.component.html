@@ -1,0 +1,8 @@
+<div nz-row [class]="'m-l-a'">
+  <button nz-button nzType="default" (click)="reset()">重置</button>
+  <button nz-button nzType="primary" (click)="query()">查询</button>
+  <button nz-button nzType="text" (click)="changStatus()">
+    {{ pickUp ? '展开' : '收起' }}
+    <span [class.pick-up]="pickUp" nz-icon nzType="up" nzTheme="outline"></span>
+  </button>
+</div>
